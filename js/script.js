@@ -47,3 +47,11 @@ const addBtnHandler = (e) => {
     title: bookTitleInput.value,
     author: bookAuthorInput.value,
   };
+  books.push(bookObject);
+  localStorage.setItem('books', JSON.stringify(books));
+  renderBooks(books);
+  bookTitleInput.value = '';
+  bookAuthorInput.value = '';
+};
+addBtn.addEventListener('click', addBtnHandler);
+renderBooks(books);
