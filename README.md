@@ -3,28 +3,25 @@
 This is a project on a book list app that adds, removes and stores books in local storage.
 
 ## Built With
-
-- HTML, CSS & JS
-- Git & Github workflows
-
-## Live Demo
-
-Click[here](https://chidiebereojingwa.github.io/conference-page/) to view the page.
-
-![screenshot](./app_screenshot.png)
-
-## Built With
 HTML
 CSS
 JavaScript
+
+### Usage
+Clone project to your local machine 
+run the index.html
+
 ### Setup
 clone to you local machine
 create a directory on a your local machin.
 open your terminal and type: git clone. https://github.com/chidiebereojingwa/awesome-book.git
-### Usage
-Clone project to your local machine 
-run the index.html
+
 ## Live Demo
+
+Click[here](https://chidiebereojingwa.github.io/awesome-book/) to view the page.
+
+![screenshot](./app_screenshot.png)
+
 
 ## Authors
 
