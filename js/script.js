@@ -34,3 +34,7 @@ const renderBooks = (books) => {
     addBook(book.title, book.author);
   });
 };
+
+if (localStorage.getItem('books')) {
+  books = JSON.parse(localStorage.getItem('books'));
+}
