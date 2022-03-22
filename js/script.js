@@ -38,3 +38,12 @@ const renderBooks = (books) => {
 if (localStorage.getItem('books')) {
   books = JSON.parse(localStorage.getItem('books'));
 }
+const addBtn = document.getElementById('add-button');
+const addBtnHandler = (e) => {
+  e.preventDefault();
+  const bookTitleInput = document.getElementById('title');
+  const bookAuthorInput = document.getElementById('author');
+  const bookObject = {
+    title: bookTitleInput.value,
+    author: bookAuthorInput.value,
+  };
