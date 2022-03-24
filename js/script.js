@@ -1,3 +1,20 @@
+class BookObject {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+
+  add() {
+    books.push(this);
+  }
+
+  remove(bookTitle) {
+    books.filter((b) => {
+      b.title !== bookTitle;
+    });
+  }
+}
+
 const bookList = document.getElementById('book-list');
 const addBtn = document.getElementById('add-button');
 const bookTitleInput = document.getElementById('title');
@@ -43,15 +60,15 @@ function addBook() {
         alertMessage.style.display = 'block';
       } else {
         // Push Object to Array
-        const bookObject = { title: bookTitleInput.value, author: bookAuthorInput.value };
-        books.push(bookObject);
+        const newBook = new BookObject(bookTitleInput.value, bookAuthorInput.value);
+        books.push(newBook);
 
         // localStorage
         localStorage.setItem('books', JSON.stringify(books));
         
         i += 1;
-        bookTitle.textContent = `Title: ${bookObject.title}`;
-        bookAuthor.textContent = `Author: ${bookObject.author}`;
+        bookTitle.textContent = `Title: ${newBook.title}`;
+        bookAuthor.textContent = `Author: ${newBook.author}`;
         removeBtn.textContent = `Remove ${i}`;
         
         book.append(bookTitle, bookAuthor, removeBtn, bookHr);
@@ -67,7 +84,7 @@ function addBook() {
       }
       
     } else {
-      alertMessage.innerHTML = 'Enter some text';
+      alertMessage.innerHTML = 'Fill out both fields';
       alertMessage.style.display = 'block';
   }
 };
