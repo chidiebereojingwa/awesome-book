@@ -5,3 +5,9 @@
 h1 {
   color: black;
 }
+
+/* Form Message */
+#alert-message {
+  display: none;
+  transition: all 0.4s;
+}
