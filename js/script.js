@@ -23,11 +23,13 @@ function createAndAppend(title, author) {
   const bookTitle = document.createElement('p');
   const bookAuthor = document.createElement('p');
   const removeBtn = document.createElement('button');
-  const bookHr = document.createElement('hr');
+  // const bookHr = document.createElement('hr');
 
   // Classes
   book.classList.add('book');
   bookTitle.classList.add('book-title');
+  bookAuthor.classList.add('book-author');
+  removeBtn.classList.add('remove-btn');
 
   // Add Content
   i += 1;
@@ -36,7 +38,7 @@ function createAndAppend(title, author) {
   removeBtn.textContent = `Remove ${i}`;
 
   // Append
-  book.append(bookTitle, bookAuthor, removeBtn, bookHr);
+  book.append(bookTitle, bookAuthor, removeBtn);
   bookList.append(book);
 
   removeBtn.addEventListener('click', removeBook);
@@ -72,6 +74,7 @@ function addBook() {
       if(books.some(checkTitleBook)) {
         alertMessage.innerHTML = 'This book already exists';
         alertMessage.style.display = 'block';
+        alertMessage.style.backgroundColor = 'rgb(165, 192, 200)';
 
       } else {
         const newBook = new BookObject(bookTitleInput.value, bookAuthorInput.value);
@@ -86,7 +89,21 @@ function addBook() {
     } else {
       alertMessage.innerHTML = 'Add text to both fields';
       alertMessage.style.display = 'block';
+      alertMessage.style.backgroundColor = 'rgb(185, 140, 228)';
   }
 };
 
+function highlightMessage() {
+  alertMessage.style.transform = 'scale(1.05)';
+  alertMessage.style.border = '3px solid rgb(224, 55, 55)';
+}
+
+function noHighlightMessage() {
+  alertMessage.style.transform = 'scale(1)';
+  alertMessage.style.border = '3px solid rgb(224, 129, 129)';
+}
+
 addBtn.addEventListener('click', addBook);
+addBtn.addEventListener('mousedown', highlightMessage);
+addBtn.addEventListener('mouseup', noHighlightMessage);
+
