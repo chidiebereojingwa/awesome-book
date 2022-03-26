@@ -5,16 +5,32 @@ const bookAuthorInput = document.getElementById('author');
 const alertMessage = document.getElementById('alert-message');
 
 let books = [];
-let i = 0;
+
+
+function bookBackground(book, element) {
+  if(element % 2 === 0) {
+    book.style.backgroundColor = 'rgb(214, 214, 214)';
+    
+  } else {
+    book.style.backgroundColor = 'azure';
+  }
+}
 
 
 function removeBook() {
+  // console.log(books.findIndex((book) => 
+  // book.title === this.parentElement.children[1].innerHTML.split(' ')[1]));
+
   books = books.filter((book) => `Title: ${book.title}` !== this.parentNode.childNodes[0].innerHTML);
   // Update localStorage
   localStorage.setItem('books', JSON.stringify(books));
+
   this.parentNode.remove();
-  i -= 1;
+
+  const booksArr = document.querySelectorAll('.book');
+  booksArr.forEach((book, i) => bookBackground(book, i % 2 !== 0));
 }
+
 
 
 function createAndAppend(title, author) {
@@ -32,22 +48,34 @@ function createAndAppend(title, author) {
   removeBtn.classList.add('remove-btn');
 
   // Add Content
-  i += 1;
   bookTitle.textContent = `Title: ${title}`;
   bookAuthor.textContent = `Author: ${author}`;
-  removeBtn.textContent = `Remove ${i}`;
+  removeBtn.textContent = `Remove ${bookList.children.length + 1}`;
+
+  // Style
+  bookBackground(book, bookList.children.length % 2 !== 0);
 
   // Append
   book.append(bookTitle, bookAuthor, removeBtn);
   bookList.append(book);
-
+  
   removeBtn.addEventListener('click', removeBook);
 }
+
+
+function loadContent() {
+  books = JSON.parse(localStorage.getItem('books'));
+  books.forEach((book) => {
+    createAndAppend(book.title, book.author);
+  });
+}
+
 
 // To check if a book is repeated
 function checkTitleBook(book) {
   return book.title === bookTitleInput.value;
 }
+
 
 
 class BookObject {
@@ -65,21 +93,27 @@ class BookObject {
 
 
 
+function f() {
+  console.log(books);
+}
+window.addEventListener('click', f);
+
+
+
 function addBook() {
   if(
     bookTitleInput.value !== ''
     && bookAuthorInput.value !== ''
     ) {
-
       if(books.some(checkTitleBook)) {
         alertMessage.innerHTML = 'This book already exists';
         alertMessage.style.display = 'block';
         alertMessage.style.backgroundColor = 'rgb(165, 192, 200)';
-
       } else {
         const newBook = new BookObject(bookTitleInput.value, bookAuthorInput.value);
         newBook.add();
 
+        
         bookTitleInput.value = bookTitleInput.defaultValue;
         bookAuthorInput.value = bookAuthorInput.defaultValue;
 
@@ -106,4 +140,5 @@ function noHighlightMessage() {
 addBtn.addEventListener('click', addBook);
 addBtn.addEventListener('mousedown', highlightMessage);
 addBtn.addEventListener('mouseup', noHighlightMessage);
+loadContent();
 
