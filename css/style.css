@@ -5,9 +5,12 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  background-image: linear-gradient(
-    to bottom right, rgb(142, 230, 222), rgb(181, 144, 199));
-
+  background-image:
+    linear-gradient(
+      to bottom right,
+      rgb(142, 230, 222),
+      rgb(181, 144, 199)
+    );
   min-height: 100vh;
 }
 
@@ -18,10 +21,8 @@ h1 {
 #book-list {
   font-size: 16px;
   font-weight: bold;
-
   border: 4px solid rgb(68, 68, 68);
-  border-radius: 5px;  
-
+  border-radius: 5px;
   max-width: 880px;
   margin: 0 auto;
 }
@@ -67,11 +68,9 @@ fieldset {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   border: none;
   padding: 0;
   margin: 0;
-  
 }
 
 legend {
@@ -81,16 +80,14 @@ legend {
   margin: 0;
 }
 
-input, 
+input,
 button {
   font-size: 16px;
   font-weight: bold;
-
   border: 3px solid rgb(68, 68, 68);
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
-  
   min-width: min-content;
   max-width: 100%;
 }
@@ -99,7 +96,6 @@ button {
   display: block;
   align-self: flex-end;
   padding: 5px 40px;
-  
   background-color: rgb(33, 221, 190);
   border: 3px solid transparent;
 }
@@ -115,13 +111,11 @@ button {
 #alert-message {
   font-weight: bold;
   align-self: center;
-
   display: none;
   padding: 10px;
   margin: 5px;
   border: 3px solid rgb(224, 129, 129);
   border-radius: 5px;
   max-width: 200px;
-
   transition: all 0.2s;
 }
