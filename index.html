@@ -12,11 +12,18 @@
 <body>
     <h1>Awesome Books</h1>
     <div>
-      <div id="book-list"></div>
+      <div id="book-list">
+        <!-- Here all books -->
+      </div>
       <form>
-        <input type="text" placeholder="Book Title" id="title" /><br />
-        <input type="text" placeholder="Author" id="author" /><br />
-        <button id="add-button" type="button">Add</button>
+        <div id="devider"></div>
+        <fieldset>
+          <legend>Add a new book</legend>
+          <input type="text" placeholder="Book Title" id="title">
+          <input type="text" placeholder="Author" id="author">
+          <div id="alert-message"></div>
+          <button id="add-button" type="button">Add</button>
+        </fieldset>
       </form>
     </div>
  <script src="./js/script.js"></script>

@@ -18,7 +18,7 @@ open your terminal and type: git clone. https://github.com/chidiebereojingwa/awe
 
 ## Live Demo
 
-Click[here](https://chidiebereojingwa.github.io/awesome-book/) to view the page.
+Click [here](https://chidiebereojingwa.github.io/awesome-book/index.html) to view the page.
 
 ![screenshot](./app_screenshot.png)
 
