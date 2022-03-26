@@ -1,1 +1,9 @@
 node_modules/
+#Webhint
+package.json
+.hintrc
+#Stylelint
+package-lock.json
+.stylelintrc.json
+#ESLint
+.eslintrc.json
